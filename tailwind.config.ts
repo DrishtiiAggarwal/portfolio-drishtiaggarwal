@@ -9,6 +9,11 @@ export default {
   theme: {
     extend: {
       colors: {
+        darkBackground: '#1A1A2E',
+        cardBackground: '#2C2C54',
+        softPink: '#FFB6C1',
+        dustyRose: '#C08497',
+        lavender: '#C3A6FF',
         background: "var(--background)",
         foreground: "var(--foreground)",
       },

@@ -57,47 +57,63 @@ const updates = [
   },
 ];
 
-const socials = [
-  { name: "Email", href: "mailto:drishtiaggarwals17@gmail.com" },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/drishtiiaggarwal/" },
+const social = [
   { name: "Resume", href: "https://drive.google.com/file/d/1i8vN_mOo0TAPvHcFqa1obhnrt0odwSyO/view?usp=sharing" },
   { name: "LeetCode", href: "https://leetcode.com/u/Drishtii/" },
   { name: "CodeForces", href: "https://codeforces.com/profile/Drishtiiaggarwal" },
   { name: "Github", href: "https://github.com/DrishtiiAggarwal" },
 ];
 
+const socials = [
+  { name: "Email", href: "mailto:drishtiaggarwals17@gmail.com" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/drishtiiaggarwal/" },
+];
+
 export default function Home() {
   return (
-    <main className="items-center gap-8 min-h-screen bg-black text-white p-8 md:p-16 lg:p-24">
-      <div className="max-w-3xl mx-auto space-y-16">
+    <main className="items-center gap-8 min-h-screen bg-black text-white p-4 md:p-12 lg:p-20">
+      <div className="max-w-xl mx-auto space-y-12">
         {/* Header */}
         <header className="space-y-4">
-          <h1 className="text-2xl font-bold">Drishti Aggarwal</h1>
+          <h1 className="inline-flex text-[15px] font-medium no-underline">Drishti Aggarwal</h1>
           <div className="flex items-center space-x-2">
           {/* <div className="absolute flex size-4">
               <span className="absolute top-[4.5px] size-2 animate-ping rounded-full bg-green-500 opacity-75"></span>
               <span className="relative top-[4.5px] size-2 rounded-full bg-green-500"></span>
             </div> */}
             <span className="h-2 w-2 bg-green-500 rounded-full animate-pulse" />
-            <span className="">available for work</span>
+            <span className="prose prose-neutral ml-4 dark:prose-invert text-[14px] text-gray-400">available for work</span>
           </div>
         </header>
 
         {/* Bio */}
         <section className="space-y-4">
-          <p className="text-lg">
+          <p className="text-[15px]">
             I&apos;m a{" "}
-            <span className="font-serif italic">final-year B.Tech student</span> passionate about building 
+            <span className="font-serif italic text-[15px]">final-year B.Tech student</span> passionate about building 
             creative and modern web applications
           </p>
-          <p className="text-gray-400">
-          I'll be graduating in 2025.
-          </p>
+          {/* Links */}
+        <section className="space-y-6">
+          <div className="flex flex-wrap gap-4 text-[15px] text-gray-400">
+            {social.map((social) => (
+              <Link
+                key={social.name}
+                href={social.href}
+                className="text-sm hover:text-gray-300 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {social.name}
+              </Link>
+            ))}
+          </div>
+        </section>
         </section>
 
         {/* Projects */}
         <section className="space-y-6">
-          <h2 className="text-xl font-semibold">Projects</h2>
+          <h2 className="text-[15px] font-semibold">Projects</h2>
           <div className="space-y-4">
             {projects.map((project) => (
               <Link
@@ -107,15 +123,15 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="block group"
               >
-                <div className="flex items-center justify-between py-4 border-b border-gray-800 hover:bg-gray-900/30 transition-colors rounded-lg px-4">
+                <div className="flex items-center justify-between py-4 border-b border-gray-800 hover:bg-gray-900/30 transition-colors rounded-lg ">
                   <div className="space-y-1">
                     <div className="flex items-center space-x-4">
-                      <h3 className="font-medium">{project.name}</h3>
-                      <span className="text-xs px-2 py-1 rounded-full bg-gray-800 text-gray-400">
+                      <h3 className="text-sm">{project.name}</h3>
+                      <span className="text-[10px] px-2 py-1 rounded-full bg-gray-800 text-gray-400">
                         {project.status}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-400">{project.description}</p>
+                    <p className="text-xs text-gray-400">{project.description}</p>
                   </div>
                   {/* <ArrowUpRight className="opacity-0 group-hover:opacity-100 transition-opacity" /> */}
                 </div>
@@ -126,17 +142,17 @@ export default function Home() {
 
         {/* Updates */}
         <section className="space-y-6">
-          <h2 className="text-xl font-semibold">Updates</h2>
+          <h2 className="text-[15px] font-semibold">Updates</h2>
           <div className="space-y-4">
             {updates.map((update, index) => (
               <div
                 key={index}
-                className="group flex items-center justify-between py-4 border-b border-gray-800 hover:bg-gray-900/30 transition-colors rounded-lg px-4"
+                className="group flex items-center justify-between py-4 border-b border-gray-800 hover:bg-gray-900/30 transition-colors rounded-lg "
               >
                 <div className="space-y-1 flex-1">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-medium">{update.role}</h3>
-                    <span className="text-sm text-gray-400">{update.company}</span>
+                    <h3 className="text-sm">{update.role}</h3>
+                    <span className="text-sm text-gray-200">{update.company}</span>
                   </div>
                   <p className="text-sm text-gray-400">{update.description}</p>
                   <span className="text-xs text-gray-500">{update.date}</span>
@@ -148,7 +164,7 @@ export default function Home() {
 
         {/* Contact */}
         <section className="space-y-6">
-          <p className="text-gray-400">
+          <p className=" text-sm">
           let's connect and collaborate!
           </p>
           <div className="flex flex-wrap gap-4">
@@ -156,7 +172,7 @@ export default function Home() {
               <Link
                 key={social.name}
                 href={social.href}
-                className="text-sm hover:text-gray-300 transition-colors"
+                className="text-sm text-gray-400 hover:text-gray-300 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
